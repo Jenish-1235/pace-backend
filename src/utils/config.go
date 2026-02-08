@@ -14,7 +14,9 @@ type Config struct {
     LogLevel    string `env:"LOG_LEVEL" envDefault:"info"`
     Environment string `env:"ENVIRONMENT" envDefault:"local"`
 
-	PostgresDBUri string `env:"POSTGRES_DB_URI"`
+	PostgresDBUri string `env:"POSTGRES_DB_URI" envDefault:"postgres://user:password@localhost:5432/pace_db?sslmode=disable"`
+	MaxConns     int32    `env:"MAX_DB_CONNECTIONS" envDefault:"10"`
+	MinConns     int32    `env:"MIN_DB_CONNECTIONS" envDefault:"2"`
 	
 	FirebaseProjectID	string `env:"FIREBASE_PROJECT_ID"`
 	FirebaseClientEmail	string `env:"FIREBASE_CLIENT_EMAIL"`
